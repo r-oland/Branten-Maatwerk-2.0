@@ -3,18 +3,20 @@ const path = require("path");
 
 module.exports = {
   siteMetadata: {
-    title: `New project`,
-    description: `undefined`,
-    author: `Roland Branten`
-    //siteUrl: ``,
+    title: `Branten Maatwerk`,
+    description:
+      "Op zoek naar een klusbedrijf in regio Best? Lees hier wat de mogelijkheden zijn en vraag vrijblijvend een offerte aan. Een aanspreekpunt voor heel uw klus!",
+    author: `Roland Branten`,
+    siteUrl: `https://www.brantenmaatwerk.nl`
   },
   plugins: [
-    // `gatsby-plugin-sitemap`,
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-smoothscroll`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -25,18 +27,17 @@ module.exports = {
     {
       resolve: "gatsby-plugin-root-import",
       options: {
-        assets: path.join(__dirname, "src/assets"),
-        mixins: path.join(__dirname, "src/style/Mixins")
+        assets: path.join(__dirname, "src/assets")
       }
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `new`,
-        short_name: `new`,
-        start_url: `/`,
-        background_color: `#fbf4ea`,
-        theme_color: `#fbf4ea`,
+        name: `Branten Maatwerk`,
+        short_name: `B Maatwerk`,
+        start_url: `https://www.brantenmaatwerk.nl`,
+        background_color: `#00667D`,
+        theme_color: `#00667D`,
         display: `standalone`,
         icon: `icon/icon.png`
       }
@@ -49,15 +50,15 @@ module.exports = {
           include: /\.inline\.svg$/
         }
       }
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        host: process.env.CONTENTFUL_HOST
+      }
     }
-    //   {
-    //     resolve: `gatsby-source-contentful`,
-    //     options: {
-    //        spaceId: process.env.CONTENTFUL_SPACE_ID,
-    //        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-    //        host: process.env.CONTENTFUL_HOST
-    //     }
-    //  },
     // {
     //    resolve: `gatsby-plugin-google-analytics`,
     //    options: {
