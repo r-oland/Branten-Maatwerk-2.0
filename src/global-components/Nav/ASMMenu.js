@@ -1,13 +1,14 @@
 // Components==============
+import { Link } from "gatsby";
 import { Container } from "mixins";
 import React from "react";
 import styled from "styled-components";
 // =========================
 
 const Hide = styled.div`
-  /* @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1000px) {
     display: none;
-  } */
+  }
 `;
 
 const Menu = styled.div`
@@ -68,13 +69,18 @@ export default function ASMMenu({ menuState, setMenuState }) {
       <Menu menuState={menuState}>
         <Container>
           <ul>
-            <li onClick={changeMenu}>page 1</li>
-
-            <li onClick={changeMenu}>page 2</li>
-
-            <li onClick={changeMenu}>page 3</li>
-
-            <li onClick={changeMenu}>page 4</li>
+            <Link to="/#werkzaamheden">
+              <li onClick={changeMenu}>Werkzaamheden</li>
+            </Link>
+            <Link to="/#overMij">
+              <li onClick={changeMenu}>Over mij</li>
+            </Link>
+            <Link to="/#projecten">
+              <li onClick={changeMenu}>Projecten</li>
+            </Link>
+            <Link to="/#contact">
+              <li onClick={changeMenu}>Contact</li>
+            </Link>
           </ul>
         </Container>
       </Menu>

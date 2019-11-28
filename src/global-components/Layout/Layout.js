@@ -8,13 +8,13 @@ import Footer from "../Footer/Footer";
 import Nav from "../Nav/Nav";
 // =========================
 
-export default function Layout({ children }) {
+export default function Layout({ children, waardePunten }) {
   return (
     <ThemeProvider theme={Variables}>
       <OverFlowFix>
         <Nav />
         {children}
-        <Footer style={{ marginTop: `auto` }} />
+        <Footer style={{ marginTop: `auto` }} waardePunten={waardePunten} />
       </OverFlowFix>
       <GlobalStyles />
     </ThemeProvider>

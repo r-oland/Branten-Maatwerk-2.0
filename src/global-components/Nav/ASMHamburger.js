@@ -6,9 +6,9 @@ import styled from "styled-components";
 // =========================
 
 const SvgWrapper = styled.div`
-  /* @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 1000px) {
     display: none;
-  } */
+  }
 
   height: 25px;
   cursor: pointer;
@@ -70,13 +70,3 @@ export default function ASMHamburger({ menuState, setMenuState }) {
     </SvgWrapper>
   );
 }
-
-// INSERT IN NAVIGATION COMPONENT
-
-// const [menuState, setMenuState] = useState("closed");
-
-/* <ASMHamburger menuState={menuState} setMenuState={setMenuState} />
-<ASMMenu
-  menuState={menuState}
-  setMenuState={setMenuState}
-/> */

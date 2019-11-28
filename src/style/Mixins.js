@@ -119,7 +119,7 @@ export const Button = styled.p`
   background-color: ${({ theme: { primary } }) => primary.s4};
   color: ${({ theme: { white } }) => white};
   font-weight: ${({ theme: { fontWeight } }) => fontWeight.semiBold};
-  padding: ${({ theme: { spacing } }) => `${spacing.s2} ${spacing.s6}`};
+  padding: ${({ theme: { spacing } }) => `${spacing.s2} ${spacing.s5}`};
   display: inline-block;
   border-radius: ${({ theme: { borderRadius } }) => borderRadius};
 

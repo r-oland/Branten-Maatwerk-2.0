@@ -16,7 +16,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-netlify`,
-    `gatsby-plugin-smoothscroll`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -27,7 +26,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-root-import",
       options: {
-        assets: path.join(__dirname, "src/assets")
+        assets: path.join(__dirname, "src/assets"),
+        mixins: path.join(__dirname, "src/style/Mixins")
       }
     },
     {
