@@ -19,6 +19,7 @@ export default function index({ data }) {
   const headshot = paginaContent.headshotAfbeelding.fluid;
   const headshot2 = paginaContent.headshotAfbeelding2.fluid;
   const welkomschermAfbeelding = paginaContent.welkomschermAfbeelding.fluid;
+  const contactVoorkeur = paginaContent.contactVoorkeur.contactVoorkeur;
 
   const klantenReferenties = data.allContentfulKlantenReferenties.edges;
   const projecten = data.allContentfulProjecten.edges;
@@ -27,7 +28,7 @@ export default function index({ data }) {
   const werkzaamheid2 = data.secondField;
 
   return (
-    <Layout waardePunten={waardePunten} pageStyle="home">
+    <Layout waardePunten={waardePunten} contactVoorkeur={contactVoorkeur}>
       <Head
         title="Home"
         description="Op zoek naar een klusbedrijf in regio Best? Lees hier wat de mogelijkheden zijn en vraag vrijblijvend een offerte aan. Een aanspreekpunt voor heel uw klus!"
@@ -62,6 +63,9 @@ export const query = graphql`
       korteIntroductie {
         korteIntroductie
       }
+      contactVoorkeur {
+        contactVoorkeur
+      }
       overMijInformatie {
         overMijInformatie
       }
@@ -81,6 +85,7 @@ export const query = graphql`
         }
       }
     }
+
     # klanten referenties
     allContentfulKlantenReferenties {
       edges {

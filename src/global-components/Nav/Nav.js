@@ -10,6 +10,7 @@ import ASMMenu from "./ASMMenu";
 // =========================
 
 const NavWrapper = styled.div`
+  background: ${({ theme: { white } }) => white};
   width: 100vw;
   box-shadow: ${({ theme: { shadow } }) => shadow.small};
 
@@ -19,6 +20,7 @@ const NavWrapper = styled.div`
       position: fixed;
       top: 0;
       left: 0;
+      z-index: 148;
     `}
 `;
 
@@ -37,7 +39,7 @@ const LogoSVG = styled.img`
   left: 50%;
   transform: translateX(-50%);
   width: 170px;
-  top: 18px;
+  top: 14px;
 
   @media screen and (min-width: 1000px) {
     position: initial;

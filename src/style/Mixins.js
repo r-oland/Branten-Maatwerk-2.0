@@ -1,6 +1,7 @@
 // cylinder
 import CylinderImp from "assets/Cylinder.inline.svg";
 import HillImp from "assets/Hill.inline.svg";
+import Hill2Imp from "assets/Hill2.inline.svg";
 import Ramp2Imp from "assets/Ramp2.inline.svg";
 import styled from "styled-components";
 // FLex unit
@@ -34,6 +35,9 @@ export function flexUnit(amount, min, max, unit = "vw", prop = "font-size") {
 export const OverFlowFix = styled.div`
   overflow: hidden;
   position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 // Container
@@ -94,12 +98,18 @@ export const Hill = styled(HillImp)`
   position: relative;
   left: -1.25vw;
   width: 102.5vw;
-  /* set height for flexible SVG */
-  /* set position absolute to this element and position relative + zIndex to previous/next element for smooth overlap */
 
   #changeColor {
-    fill: ${({ theme: { primary } }) => primary.s4};
+    fill: ${({ theme: { gray } }) => gray.s1};
   }
+`;
+
+// hill2 svg
+
+export const Hill2 = styled(Hill2Imp)`
+  position: relative;
+  left: -1.25vw;
+  width: 102.5vw;
 `;
 
 // card
@@ -153,10 +163,8 @@ export const Ramp = styled(Ramp2Imp)`
   position: relative;
   left: -1.25vw;
   width: 102.5vw;
-  /* set height for flexible SVG */
-  /* set position absolute to this element and position relative + zIndex to previous/next element for smooth overlap */
 
   #changeColor {
-    fill: ${({ theme: { primary } }) => primary.s4};
+    fill: ${({ theme: { gray } }) => gray.s9};
   }
 `;

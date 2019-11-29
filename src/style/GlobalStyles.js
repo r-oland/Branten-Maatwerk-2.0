@@ -28,9 +28,19 @@ const GlobalStyles = createGlobalStyle`
 
    body {
       color: ${({ theme: { black } }) => black};
-      min-height: 100%;
-      display: flex;
-      flex-direction: column
+      height: 100%;
+   }
+
+   #___gatsby {
+      height: 100%;
+   }
+
+   #gatsby-focus-wrapper {
+      height: 100%;
+   }
+
+   svg{
+      display: block;
    }
 
    /* =========================================*/
@@ -84,7 +94,7 @@ const GlobalStyles = createGlobalStyle`
    }
 
    h1 {
-      ${flexUnit(4, 32, 55, "vw", "font-size")}
+      ${flexUnit(4, 32, 45, "vw", "font-size")}
    }
 
    h2 {
