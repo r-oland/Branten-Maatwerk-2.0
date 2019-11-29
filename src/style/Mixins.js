@@ -43,14 +43,14 @@ export const OverFlowFix = styled.div`
 // Container
 
 export const Container = styled.div`
-  margin: 0 2.5%;
+  margin: 0 5%;
 
   @media screen and (min-width: 768px) {
-    margin: 0 5%;
+    margin: 0 6.5%;
   }
 
   @media screen and (min-width: 1200px) {
-    margin: 0 7.5%;
+    margin: 0 8%;
   }
 `;
 
@@ -118,8 +118,6 @@ export const Card = styled.div`
   background-color: ${({ theme: { white } }) => white};
   border-radius: ${({ theme: { borderRadius2 } }) => borderRadius2};
   box-shadow: ${({ theme: { shadow } }) => shadow.medium};
-  max-width: ${({ theme: { spacing } }) => spacing.s14};
-  height: ${({ theme: { spacing } }) => spacing.s14};
   margin: 0 auto;
 `;
 

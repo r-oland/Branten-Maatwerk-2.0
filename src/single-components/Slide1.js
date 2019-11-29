@@ -8,8 +8,14 @@ import styled from "styled-components";
 // =========================
 
 const Slider1 = styled(Slider)`
-  max-width: 1000px;
-  margin: 0 auto;
+  @media screen and (min-width: 1200px) {
+    max-width: 800px;
+    margin: 0 0 0 auto;
+  }
+
+  @media screen and (min-width: 1600px) {
+    max-width: 1100px;
+  }
 
   /* ====== */
   /* ARROWS */

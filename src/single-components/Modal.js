@@ -29,7 +29,7 @@ const Modal = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
+  width: 1000px;
   max-width: 90vw;
   transition: 0.5s;
 
@@ -51,10 +51,15 @@ const Modal = styled.div`
 const OverflowDiv = styled.div`
   overflow: auto;
   max-height: 80vh;
-  padding: ${({ theme: { spacing } }) => `${spacing.s8} ${spacing.s5}`};
+  padding: ${({ theme: { spacing } }) =>
+    `${spacing.s2} ${spacing.s5} ${spacing.s8}`};
 `;
 
-export default function Modal({ modalIsOpen, children, handleChange }) {
+export default function ModalWerkzaamheden({
+  modalIsOpen,
+  children,
+  handleChange
+}) {
   return (
     <div>
       <Shade modalIsOpen={modalIsOpen} />

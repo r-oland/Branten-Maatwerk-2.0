@@ -7,27 +7,32 @@ import styled from "styled-components";
 // =========================
 
 const Card = styled.div`
-  display: flex;
+  display: none;
   position: relative;
   border-radius: ${({ theme: { borderRadius2 } }) => borderRadius2};
   background-color: ${({ theme: { white } }) => white};
   box-shadow: ${({ theme: { shadow } }) => shadow.medium};
-  max-width: ${({ theme: { spacing } }) => spacing.s14};
-  height: ${({ theme: { spacing } }) => spacing.s12};
+  max-width: 1000px;
+  height: 320px;
   margin: 0 auto;
   overflow: hidden;
+
+  @media screen and (min-width: 700px) {
+    display: flex;
+  }
 `;
 
 const Image = styled(Img)`
-  width: 40%;
+  width: 32%;
   height: 100%;
+  object-fit: cover;
 `;
 
 const CurveSvg = styled(CurveImp)`
   height: 105%;
   width: 40%;
   position: absolute;
-  left: 18.5%;
+  left: 10%;
   top: -2.5%;
 
   #changeColor {
@@ -37,6 +42,14 @@ const CurveSvg = styled(CurveImp)`
 
 const Content = styled.div`
   z-index: 1;
+  width: 68%;
+  display: flex;
+  align-items: center;
+
+  p {
+    font-weight: ${({ theme: { fontWeight } }) => fontWeight.semiBold};
+    line-height: ${({ theme: { lineHeight } }) => lineHeight.s4};
+  }
 `;
 
 export default function Card2({ img, children }) {

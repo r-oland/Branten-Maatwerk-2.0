@@ -7,6 +7,15 @@ import styled from "styled-components";
 // =========================
 
 const Slider2 = styled(Slider)`
+  @media screen and (min-width: 1200px) {
+    max-width: 800px;
+    margin: 0 0 0 auto;
+  }
+
+  @media screen and (min-width: 1600px) {
+    max-width: 1100px;
+  }
+
   cursor: pointer;
   padding-top: ${({ theme: { spacing } }) => spacing.s1};
 
@@ -20,16 +29,6 @@ const Slider2 = styled(Slider)`
 `;
 
 export default function Slide2({ children, nav1, setNav2 }) {
-  const mediaQ = () => {
-    const Query = window.matchMedia("(min-width: 700px)");
-
-    if (Query.matches) {
-      return 3;
-    } else {
-      return 2;
-    }
-  };
-
   const mediaQ2 = () => {
     const Query = window.matchMedia("(min-width: 700px)");
 
@@ -41,7 +40,7 @@ export default function Slide2({ children, nav1, setNav2 }) {
   };
 
   const settings = {
-    slidesToShow: mediaQ(),
+    slidesToShow: 3,
     swipeToSlide: true,
     focusOnSelect: true,
     centerMode: mediaQ2(),

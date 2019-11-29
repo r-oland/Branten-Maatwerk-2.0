@@ -174,6 +174,15 @@ const CopyRight = styled(Xs)`
   padding: ${({ theme: { spacing } }) => `${spacing.s8} 0 ${spacing.s4}`};
   grid-column: 1/4;
   grid-row: 2;
+
+  @media screen and (min-width: 1800px) {
+    padding: ${({ theme: { spacing } }) => `${spacing.s10} 0 ${spacing.s6}`};
+  }
+`;
+
+const SmoothScroll = styled.div`
+  position: relative;
+  top: -${({ theme: { spacing } }) => spacing.s10};
 `;
 
 export default function Footer() {
@@ -227,7 +236,8 @@ export default function Footer() {
       <Content>
         <GridContainer>
           <GridColumn>
-            <h2 id="contact">Contact</h2>
+            <SmoothScroll id="contact" />
+            <h2>Contact</h2>
             <p>{contactVoorkeur}</p>
             <ContactGegevens>
               <Locatie>

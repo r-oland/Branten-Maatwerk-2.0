@@ -20,11 +20,11 @@ const SlideWrapper = styled.div`
   }
 
   #leftArrow {
-    transform: translate(0, -50%);
+    transform: translate(0, calc(-50% - 25px));
   }
 
   #rightArrow {
-    transform: translate(0, -50%) rotate(180deg);
+    transform: translate(0, calc(-50% - 25px)) rotate(180deg);
   }
 `;
 
@@ -63,7 +63,7 @@ const Slide = styled(Slider)`
 
 export default function Carousel1({ children }) {
   const mediaQ = () => {
-    const Query = window.matchMedia("(min-width: 800px)");
+    const Query = window.matchMedia("(min-width: 1000px)");
 
     if (Query.matches) {
       return true;

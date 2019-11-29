@@ -78,7 +78,7 @@ export default function Nav() {
     <NavWrapper fixed={true}>
       <FlexContainer>
         <ASMHamburger menuState={menuState} setMenuState={setMenuState} />
-        <Link to="/#top">
+        <Link to="/">
           <LogoSVG src={Logo} alt="Branten-Maatwerk-Logo" />
         </Link>
         <MenuItems>
