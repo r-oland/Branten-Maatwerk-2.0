@@ -22,7 +22,7 @@ const RefContainer = styled(Container)`
 `;
 
 const RefCard = styled(Card)`
-  height: 220px;
+  height: 250px;
   max-width: 350px;
   margin-bottom: ${({ theme: { spacing } }) => spacing.s2};
   position: relative;
@@ -37,7 +37,7 @@ const Flex = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 120px;
+  height: 150px;
 `;
 
 const Toelichting = styled.p`

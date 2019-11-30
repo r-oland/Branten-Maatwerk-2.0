@@ -1,7 +1,7 @@
 {
   "files.exclude": {
     ".cache": true,
-    // "icon": true,
+    "icon": true,
     "node_modules": true,
     "public": true,
     ".env": true,
