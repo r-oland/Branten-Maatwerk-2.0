@@ -13,8 +13,10 @@ const Slide = styled(Slider)`
 
 export default function Carousel2({ children }) {
   const mediaQ = () => {
-    const Query1 = window.matchMedia("(min-width: 800px)");
-    const Query2 = window.matchMedia("(min-width: 1400px)");
+    const Query1 =
+      typeof window !== "undefined" && window.matchMedia("(min-width: 800px)");
+    const Query2 =
+      typeof window !== "undefined" && window.matchMedia("(min-width: 1400px)");
 
     if (Query1.matches && Query2.matches) {
       return 3;

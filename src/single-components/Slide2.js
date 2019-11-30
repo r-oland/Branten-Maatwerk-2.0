@@ -30,7 +30,8 @@ const Slider2 = styled(Slider)`
 
 export default function Slide2({ children, nav1, setNav2 }) {
   const mediaQ2 = () => {
-    const Query = window.matchMedia("(min-width: 700px)");
+    const Query =
+      typeof window !== "undefined" && window.matchMedia("(min-width: 700px)");
 
     if (Query.matches) {
       return true;

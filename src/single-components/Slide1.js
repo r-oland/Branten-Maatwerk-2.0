@@ -63,7 +63,8 @@ function PrevArrow(props) {
 
 export default function Slide1({ children, setNav1, nav2 }) {
   const mediaQ = () => {
-    const Query = window.matchMedia("(min-width: 800px)");
+    const Query =
+      typeof window !== "undefined" && window.matchMedia("(min-width: 800px)");
 
     if (Query.matches) {
       return true;
