@@ -1,5 +1,5 @@
 // Components==============
-import Logo from "assets/Branten-Maatwerk-Logo.svg";
+import Logo from "assets/Logo-Branten-Maatwerk.svg";
 import { Link } from "gatsby";
 import { Container } from "mixins";
 import React, { useState } from "react";
