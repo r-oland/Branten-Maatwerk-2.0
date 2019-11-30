@@ -28,7 +28,7 @@ export default function notFound() {
         keywords="404, unavailable, not found"
       />
       <Container404>
-        <h2>I could not find what you where looking for.</h2>
+        <h2>I could not find what you where looking for</h2>
         {/* eslint-disable-next-line */}
         <Smiley>😟</Smiley>
       </Container404>
