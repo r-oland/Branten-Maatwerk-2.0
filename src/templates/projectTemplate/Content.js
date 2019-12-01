@@ -1,21 +1,22 @@
 // Components==============
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
+import { Link } from "gatsby";
 import Img from "gatsby-image";
 import React, { useState } from "react";
 import styled from "styled-components";
 import Slide1 from "../../single-components/Slide1";
 import Slide2 from "../../single-components/Slide2";
-import { Container } from "../../style/Mixins";
+import { Button, Container } from "../../style/Mixins";
 // =========================
 
 const ProjectContainer = styled(Container)`
-  padding-top: ${({ theme: { spacing } }) => spacing.s10};
+  padding-top: 90px;
   min-height: calc(100vh);
 `;
 
 const Flex = styled.div`
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1390px) {
     display: flex;
     flex-direction: row-reverse;
   }
@@ -26,8 +27,8 @@ const Uitleg = styled.div`
     margin-bottom: ${({ theme: { spacing } }) => spacing.s4};
     margin-top: ${({ theme: { spacing } }) => spacing.s6};
 
-    @media screen and (min-width: 1200px) {
-      margin-top: 0;
+    @media screen and (min-width: 1390px) {
+      margin-top: ${({ theme: { spacing } }) => spacing.s2};
     }
   }
 
@@ -46,8 +47,29 @@ const Uitleg = styled.div`
 `;
 
 const Slides = styled.div`
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1390px) {
     padding-left: ${({ theme: { spacing } }) => spacing.s4};
+  }
+`;
+
+const Back1 = styled(Link)`
+  display: none;
+
+  background-color: ${({ theme: { primary } }) => primary.s2};
+  @media screen and (min-width: 1390px) {
+    display: inline;
+  }
+`;
+
+const Back2 = styled(Link)`
+  background-color: ${({ theme: { primary } }) => primary.s2};
+
+  @media screen and (min-width: 1390px) {
+    display: none;
+  }
+
+  .backButton {
+    margin-bottom: ${({ theme: { spacing } }) => spacing.s4};
   }
 `;
 
@@ -79,6 +101,9 @@ export default function Content({ titel, werkzaamheden, afbeeldingen }) {
 
   return (
     <ProjectContainer>
+      <Back2 to="/#projecten">
+        <Button className="backButton">Terug</Button>
+      </Back2>
       <Flex>
         <Slides>
           <Slide1 setNav1={setNav1} nav2={nav2}>
@@ -89,6 +114,9 @@ export default function Content({ titel, werkzaamheden, afbeeldingen }) {
           </Slide2>
         </Slides>
         <Uitleg>
+          <Back1 to="/#projecten">
+            <Button>Terug</Button>
+          </Back1>
           <h2>{titel}</h2>
           {documentToReactComponents(werkzaamheden, richTextOptions)}
         </Uitleg>

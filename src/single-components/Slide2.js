@@ -7,12 +7,12 @@ import styled from "styled-components";
 // =========================
 
 const Slider2 = styled(Slider)`
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1390px) {
     max-width: 800px;
     margin: 0 0 0 auto;
   }
 
-  @media screen and (min-width: 1600px) {
+  @media screen and (min-width: 1750px) {
     max-width: 1100px;
   }
 
