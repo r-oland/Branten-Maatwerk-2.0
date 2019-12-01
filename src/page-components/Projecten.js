@@ -74,7 +74,7 @@ export default function Projecten({ projecten }) {
     const slug = edge.node.slug;
 
     return (
-      <Slide>
+      <Slide key={slug}>
         <SlideImg fluid={afbeelding} />
         <CTACard slug={slug} cta={"Bekijk project"}>
           <Container>
