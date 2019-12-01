@@ -83,7 +83,7 @@ export default function Nav() {
         </Link>
         <MenuItems>
           <Link to="/#werkzaamheden">
-            <li>werkzaamheden</li>
+            <li>Werkzaamheden</li>
           </Link>
           <Link to="/#overMij">
             <li>Over mij</li>
