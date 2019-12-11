@@ -261,7 +261,7 @@ export default function Footer() {
           <Divider />
           <GridColumn2>{ValuePoints}</GridColumn2>
           <CopyRight>
-            © Copyright - 2019 | Branten Maatwerk | Alle rechten gereserveerd
+            © Copyright - 2019 | Branten Maatwerk | Alle rechten voorbehouden
           </CopyRight>
         </GridContainer>
       </Content>
