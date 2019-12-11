@@ -34,10 +34,6 @@ const Modal = styled.div`
   transition: 0.5s;
   text-align: center;
 
-  p {
-    color: ${({ theme: { gray } }) => gray.s7};
-  }
-
   .close {
     cursor: pointer;
     position: fixed;
