@@ -13,7 +13,7 @@ const Text = styled.p`
 
 export default function IEWarning() {
   const isIE = () => {
-    if (window !== undefined) {
+    if (typeof window !== `undefined`) {
       return /*@cc_on!@*/ false || !!document.documentMode;
     }
   };
