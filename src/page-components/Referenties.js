@@ -152,7 +152,7 @@ export default function Referenties({ klantenReferenties }) {
   const CardSection = klantenReferenties.map(edge => {
     const id = edge.node.contentful_id;
     const naam = edge.node.voornaamKlant;
-    const zin = edge.node.zinOmschrijving;
+    const zin = edge.node.korteToelichting;
     const referentie = edge.node.referentie.referentie;
     const shortReferentie = referentie.slice(0, 50);
 

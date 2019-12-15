@@ -92,10 +92,10 @@ export const query = graphql`
         node {
           contentful_id
           voornaamKlant
-          zinOmschrijving
           referentie {
             referentie
           }
+          korteToelichting
         }
       }
     }
