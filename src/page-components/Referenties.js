@@ -1,8 +1,8 @@
 // Components==============
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Carousel2 from "../single-components/Carousel2";
-import { Card, Container, L } from "../style/Mixins";
+import { Card, Container, L, S } from "../style/Mixins";
 // =========================
 const Titel = styled.h2`
   text-align: center;
@@ -22,10 +22,11 @@ const RefContainer = styled(Container)`
 `;
 
 const RefCard = styled(Card)`
-  height: 250px;
+  min-height: 250px;
   max-width: 350px;
   margin-bottom: ${({ theme: { spacing } }) => spacing.s2};
   position: relative;
+  transition: 0.2s;
 `;
 
 const Zin = styled(L)`
@@ -33,20 +34,17 @@ const Zin = styled(L)`
   font-weight: ${({ theme: { fontWeight } }) => fontWeight.bold};
 `;
 
-const Flex = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 150px;
-`;
-
 const Toelichting = styled.p`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
   color: ${({ theme: { gray } }) => gray.s7};
 
   &::before {
     content: open-quote;
     display: inline;
-    height: 0;
     line-height: 0;
     left: -4px;
     position: relative;
@@ -57,7 +55,6 @@ const Toelichting = styled.p`
   &::after {
     content: close-quote;
     display: inline;
-    height: 0;
     line-height: 0;
     left: 4px;
     position: relative;
@@ -67,13 +64,23 @@ const Toelichting = styled.p`
   }
 `;
 
+const LeesMeer = styled(S)`
+  color: ${({ theme: { primary } }) => primary.s7};
+  font-weight: ${({ theme: { fontWeight } }) => fontWeight.bold};
+  cursor: pointer;
+  position: absolute;
+  top: 67%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
 const Divider = styled.div`
   background-color: ${({ theme: { gray } }) => gray.s7};
   width: 60px;
   height: 2px;
   border-radius: ${({ theme: { borderRadius2 } }) => borderRadius2};
   position: absolute;
-  bottom: 40px;
+  bottom: 45px;
   left: 50%;
   transform: translate(-50%);
 `;
@@ -90,22 +97,103 @@ const SmoothScroll = styled.div`
   top: -${({ theme: { spacing } }) => spacing.s10};
 `;
 
+const Hide = styled(Container)`
+  visibility: ${e => {
+    const element = e.children[0].props.children;
+    const reference = e.reference;
+
+    if (element === reference) {
+      return "hidden";
+    }
+  }};
+  position: ${e => {
+    const element = e.children[0].props.children;
+    const reference = e.reference;
+
+    if (element === reference) {
+      return "absolute";
+    }
+
+    return "initial";
+  }};
+`;
+
+const Hide2 = styled(Container)`
+  padding: ${({ theme: { spacing } }) => `${spacing.s6} 0`};
+  line-height: ${({ theme: { lineHeight } }) => lineHeight.s4};
+  text-align: left;
+  visibility: ${e => {
+    const element = e.children;
+    const reference2 = e.reference2;
+
+    if (element === reference2) {
+      return "initial";
+    }
+
+    return "hidden";
+  }};
+
+  position: ${e => {
+    const element = e.children;
+    const reference2 = e.reference2;
+
+    if (element === reference2) {
+      return "initial";
+    }
+
+    return "absolute";
+  }};
+`;
+
 export default function Referenties({ klantenReferenties }) {
+  const [reference, SetReference] = useState(null);
+  const [reference2, SetReference2] = useState(null);
+
   const CardSection = klantenReferenties.map(edge => {
+    const id = edge.node.contentful_id;
     const naam = edge.node.voornaamKlant;
     const zin = edge.node.zinOmschrijving;
-    const toelichting = edge.node.korteToelichting;
+    const referentie = edge.node.referentie.referentie;
+    const shortReferentie = referentie.slice(0, 50);
+
+    const Unfold = () => {
+      const Ref1 = document.querySelector(`#a${id}`).innerHTML;
+      const Ref2 = document.querySelector(`.a${id}`).innerHTML;
+      if (referentie.length > 100) {
+        SetReference(Ref1);
+        SetReference2(Ref2);
+      }
+    };
+
+    const Fold = () => {
+      SetReference(null);
+      SetReference2(null);
+    };
+
+    const Referentie = () => {
+      if (referentie.length > 100) {
+        return (
+          <div>
+            <Toelichting>{shortReferentie}...</Toelichting>
+            <LeesMeer>Lees recensie</LeesMeer>
+          </div>
+        );
+      } else {
+        return <Toelichting>{referentie}</Toelichting>;
+      }
+    };
 
     return (
-      <RefCard key={naam}>
-        <Container>
-          <Zin>{zin}</Zin>
-          <Flex>
-            <Toelichting>{toelichting}</Toelichting>
-          </Flex>
+      <RefCard key={naam} onMouseEnter={Unfold} onMouseLeave={Fold}>
+        <Hide reference={reference}>
+          <Zin id={`a${id}`}>{zin}</Zin>
+          <Referentie />
           <Divider />
           <Naam>{naam}</Naam>
-        </Container>
+        </Hide>
+        <Hide2 reference2={reference2} className={`a${id}`}>
+          {referentie}
+        </Hide2>
       </RefCard>
     );
   });

@@ -90,9 +90,12 @@ export const query = graphql`
     allContentfulKlantenReferenties {
       edges {
         node {
+          contentful_id
           voornaamKlant
           zinOmschrijving
-          korteToelichting
+          referentie {
+            referentie
+          }
         }
       }
     }

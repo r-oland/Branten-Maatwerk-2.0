@@ -35,7 +35,7 @@ export default function Carousel2({ children }) {
     pauseOnHover: true,
     dots: false,
     slidesToShow: mediaQ(),
-    arrows: false
+    arrows: true
   };
   return (
     <div>
