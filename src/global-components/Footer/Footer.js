@@ -242,7 +242,7 @@ export default function Footer() {
             <ContactGegevens>
               <Locatie>
                 <LocationSVG src={Location} alt="Location" />
-                <p>Krijgertje 47 | 5683LC- Best</p>
+                <p>Krijgertje 47 | 5683LC - Best</p>
               </Locatie>
               <a href="tel:06-120-58-195">
                 <Telefoon>
