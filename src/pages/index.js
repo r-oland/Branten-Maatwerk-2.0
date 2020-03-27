@@ -75,7 +75,7 @@ export const query = graphql`
         }
       }
       headshotAfbeelding2 {
-        fluid(maxWidth: 1500) {
+        fluid(maxWidth: 1499) {
           ...GatsbyContentfulFluid_withWebp
         }
       }
