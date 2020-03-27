@@ -10,7 +10,7 @@
     // "gatsby-node.js": true,
     // "gatsby-config.js": true,
     "package-lock.json": true,
-    "package.json": true,
+    // "package.json": true,
     "jsconfig.json": true
   },
 
